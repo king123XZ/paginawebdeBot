@@ -2,16 +2,19 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vincula tu WhatsApp</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="background"></div>
   <div class="container">
-    <h1 class="animated fadeInDown">🤖 Vincula tu WhatsApp con el Bot</h1>
-    <p class="animated fadeIn">Tu código único es:</p>
-    <div id="code" class="code-box animated bounceIn">Cargando...</div>
-    <button class="btn" onclick="connect()">Conectar con WhatsApp</button>
+    <h1>🤖 Vincula tu WhatsApp</h1>
+    <p class="description">Generamos un código único para que conectes tu WhatsApp con el bot.</p>
+    <div class="code-box" id="codeBox">...</div>
+    <button id="connectBtn">Conectar con WhatsApp</button>
+    <p class="footer">Hecho por la comunidad de bots 🚀</p>
   </div>
 
   <script src="script.js"></script>
