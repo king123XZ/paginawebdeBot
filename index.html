@@ -10,10 +10,12 @@
       padding: 0;
       box-sizing: border-box;
     }
+
     body, html {
       height: 100%;
       font-family: 'Segoe UI', sans-serif;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
 
     video.bg-video {
@@ -35,7 +37,7 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      backdrop-filter: blur(5px);
+      backdrop-filter: blur(6px);
     }
 
     nav .logo {
@@ -64,7 +66,7 @@
 
     main {
       color: #fff;
-      padding: 3rem;
+      padding: 4rem 2rem;
       text-align: center;
       background: rgba(0, 0, 0, 0.3);
       backdrop-filter: blur(3px);
@@ -74,12 +76,22 @@
     h1 {
       font-size: 3rem;
       margin-bottom: 1rem;
+      animation: float 3s ease-in-out infinite;
     }
 
     p {
       font-size: 1.2rem;
-      max-width: 600px;
+      max-width: 700px;
       margin: 0 auto;
+      animation: fadeIn 2s ease-in;
+    }
+
+    section {
+      padding: 3rem 2rem;
+      color: white;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(2px);
     }
 
     footer {
@@ -87,7 +99,6 @@
       text-align: center;
       background-color: rgba(0, 0, 0, 0.5);
       color: #ccc;
-      position: relative;
     }
 
     @keyframes slideIn {
@@ -99,17 +110,23 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Video de fondo -->
+  <!-- 🎥 Video de fondo -->
   <video class="bg-video" autoplay muted loop playsinline>
-    <source src="media/fondo.mp4" type="video/mp4" />
+    <source src="fondo.mp4" type="video/mp4" />
     Tu navegador no soporta videos HTML5.
   </video>
 
-  <!-- Menú superior -->
+  <!-- 🌐 Navegación -->
   <nav>
     <div class="logo">Dv.yer Bot</div>
     <ul>
@@ -120,35 +137,39 @@
     </ul>
   </nav>
 
-  <!-- Contenido principal -->
+  <!-- 🏠 Página principal -->
   <main>
     <h1>Bienvenido a la Web Oficial de Dv.yer</h1>
-    <p>Conecta tu WhatsApp con nuestros bots personalizados. Recibe un código único y comienza a usar tu asistente ahora.</p>
+    <p>Conecta tu WhatsApp con nuestros bots personalizados. Recibe un código único y comienza a usar tu asistente ahora mismo.</p>
   </main>
 
-  <!-- Secciones -->
-  <section id="info" style="padding: 2rem; color: white; text-align: center;">
+  <!-- ℹ️ Sección: Información -->
+  <section id="info">
     <h2>Información de Bots</h2>
-    <p>Todos nuestros bots están diseñados para ayudarte en WhatsApp con comandos, IA y más.</p>
+    <p>Todos nuestros bots están diseñados para ayudarte en WhatsApp con comandos, IA, entretenimiento y más funciones.</p>
   </section>
 
-  <section id="bots" style="padding: 2rem; color: white; text-align: center;">
+  <!-- 🤖 Sección: Bots del creador -->
+  <section id="bots">
     <h2>Bots del Creador</h2>
-    <p>Explora todos los bots desarrollados por Dv.yer Orosco Bernaola y accede a sus funciones especiales.</p>
+    <p>Explora todos los bots desarrollados por Dv.yer Orosco Bernaola. Cada uno es único y con funciones personalizadas.</p>
   </section>
 
-  <section id="faq" style="padding: 2rem; color: white; text-align: center;">
+  <!-- ❓ Sección: Preguntas Frecuentes -->
+  <section id="faq">
     <h2>Preguntas Frecuentes</h2>
-    <p>¿Tienes dudas sobre cómo vincular tu número? Aquí tienes las respuestas.</p>
+    <p>¿Tienes dudas sobre cómo vincular tu número de WhatsApp al bot? Aquí respondemos todo.</p>
   </section>
 
-  <section id="contacto" style="padding: 2rem; color: white; text-align: center;">
+  <!-- 📬 Sección: Contacto -->
+  <section id="contacto">
     <h2>Contáctame</h2>
-    <p>¿Necesitas soporte? Escríbeme directamente por WhatsApp o Telegram.</p>
+    <p>¿Necesitas soporte o quieres un bot exclusivo? Escríbeme directamente por WhatsApp o Telegram.</p>
   </section>
 
+  <!-- ⚠️ Pie de página -->
   <footer>
-    © 2025 Creado por Dv.yer Orosco Bernaola
+    © 2025 Creado por Dv.yer Orosco Bernaola | Todos los derechos reservados.
   </footer>
 
 </body>
