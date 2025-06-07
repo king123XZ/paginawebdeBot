@@ -4,149 +4,84 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Panel de Bots - Dv.yer</title>
-  <!-- Fuente moderna de Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    html, body {
-      height: 100%;
+    * {
       margin: 0;
       padding: 0;
-      overflow: hidden;
-      font-family: 'Montserrat', Arial, sans-serif;
-      background: #111;
+      box-sizing: border-box;
     }
 
-    #video-background {
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
+    }
+
+    .bg-video {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
       z-index: -1;
-      pointer-events: none;
-      overflow: hidden;
-    }
-
-    #ytplayer {
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
+      object-fit: cover;
     }
 
     .content {
       position: relative;
       z-index: 2;
       text-align: center;
-      color: #fff;
+      color: white;
       padding: 60px 20px;
       animation: fadeIn 2s ease;
-      text-shadow: 0 2px 12px #000, 0 0 20px #00F3FF;
     }
 
     header {
-      background: rgba(20, 20, 20, 0.7);
+      background: rgba(0, 0, 0, 0.6);
       padding: 20px;
-      font-size: 2.5em;
-      font-family: 'Orbitron', Arial, sans-serif;
+      font-size: 2em;
       font-weight: bold;
-      border-bottom: 3px solid #00F3FF;
-      letter-spacing: 2px;
-      color: #00F3FF;
-      text-shadow: 0 0 10px #00F3FF;
+      border-bottom: 2px solid white;
     }
 
     nav {
       display: flex;
       justify-content: center;
-      gap: 30px;
+      gap: 25px;
       padding: 15px;
-      background: rgba(0, 0, 0, 0.55);
-      margin-bottom: 30px;
+      background: rgba(0, 0, 0, 0.4);
     }
 
     nav a {
-      color: #FFD600;
-      background: linear-gradient(90deg, #00F3FF 5%, #FFD600 95%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: bold;
-      font-size: 1.2em;
-      text-decoration: none;
-      letter-spacing: 1px;
-      transition: transform 0.2s, text-shadow 0.2s;
-      text-shadow: 0 0 10px #00F3FF;
+      color: white;
+      text-decoration: ease;
     }
 
     nav a:hover {
-      transform: scale(1.15);
-      text-shadow: 0 0 18px #FFD600, 0 0 30px #00F3FF;
-    }
-
-    h1 {
-      margin-top: 70px;
-      font-size: 2.8em;
-      font-family: 'Orbitron', Arial, sans-serif;
-      color: #FFD600;
-      text-shadow: 0 0 14px #00F3FF, 0 2px 12px #000;
-      letter-spacing: 2px;
-    }
-
-    p {
-      font-size: 1.5em;
-      color: #fff;
-      text-shadow: 0 0 10px #00F3FF, 0 2px 8px #000;
-      margin-top: 25px;
-      margin-bottom: 30px;
-    }
-
-    button {
-      background: linear-gradient(90deg, #00F3FF 0%, #FFD600 100%);
-      border: none;
-      color: #111;
-      font-size: 1.2em;
-      font-family: 'Montserrat', Arial, sans-serif;
-      padding: 15px 35px;
-      border-radius: 30px;
-      cursor: pointer;
-      box-shadow: 0 0 20px #00F3FF80, 0 0 10px #FFD60080;
-      font-weight: bold;
-      transition: transform 0.15s, box-shadow 0.2s;
-      margin-top: 10px;
-    }
-
-    button:hover {
-      transform: scale(1.07);
-      box-shadow: 0 0 30px #FFD600cc, 0 0 14px #00F3FFcc;
+      transform: scale(1.1);
     }
 
     footer {
       position: absolute;
       bottom: 10px;
-      width: 100vw;
-      text 8px #FFD600;
-      font-family: 'Orbitron', Arial, sans-serif;
-      letter-spacing: 1px;
-      z-index: 2;
-      opacity: 0.9;
+      width: 100%;
+      text-align: center;
+      color: white;
+      font-size: 14px;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px);}
-      to { opacity: 1; transform: translateY(0);}
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-  <div id="video-background">
-    <iframe
-      id="ytplayer"
-      src="https://www.youtube.com/embed/B_kf3yGyd58?autoplay=1&mute=1&controls=0&loop=1&playlist=B_kf3yGyd58&modestbranding=1&showinfo=0"
-      frameborder="0"
-      allow="autoplay; encrypted-media"
-      allowfullscreen
-    ></iframe>
-  </div>
+
+  <video class="bg-video" autoplay muted loop playsinline>
+    <source src="fondo.mp4" type="video/mp4" />
+    Tu navegador no soporta video.
+  </video>
 
   <div class="content">
     <header>Panel de Bots - Dv.yer Orosco Bernaola</header>
@@ -158,24 +93,12 @@
       <a href="#contacto">Contáctame</a>
     </nav>
 
-    <h1>Bienvenido a tu Panel de Vinculación</h1>
+    <h1 style="margin-top: 60px;">Bienvenido a tu Panel de Vinculación</h1>
     <p>Genera tu código único para conectar tu WhatsApp con tu bot de manera segura.</p>
-    <button onclick="activarSonido()">🔊 Activar Sonido</button>
   </div>
 
   <footer>
     Creado por Dv.yer Orosco Bernaola © 2025
   </footer>
-
-  <script>
-    function activarSonido() {
-      var iframe = document.getElementById('ytplayer');
-      var src = iframe.src;
-      if (src.includes('mute=1')) {
-        src = src.replace('mute=1', 'mute=0');
-        iframe.src = src;
-      }
-    }
-  </script>
 </body>
 </html>
