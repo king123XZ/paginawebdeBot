@@ -2,159 +2,105 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Página Oficial de Bots</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel de Bots - Dv.yer</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Roboto', sans-serif;
     }
 
     body, html {
       height: 100%;
-      overflow-x: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
     }
 
-    video.bg-video {
+    .bg-video {
       position: fixed;
-      top: 0; left: 0;
+      right: 0;
+      bottom: 0;
       min-width: 100%;
       min-height: 100%;
-      object-fit: cover;
       z-index: -1;
+      object-fit: cover;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: white;
+      padding: 60px 20px;
+      animation: fadeIn 2s ease;
     }
 
     header {
       background: rgba(0, 0, 0, 0.6);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 2;
-      backdrop-filter: blur(10px);
+      padding: 20px;
+      font-size: 2em;
+      font-weight: bold;
+      border-bottom: 2px solid white;
     }
 
-    header h1 {
-      font-size: 1.5rem;
-      color: #00ffc3;
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 15px;
+      background: rgba(0, 0, 0, 0.4);
     }
 
     nav a {
-      margin-left: 1.5rem;
-      color: #fff;
+      color: white;
       text-decoration: none;
       font-weight: bold;
-      transition: color 0.3s ease;
+      transition: transform 0.2s ease;
     }
 
     nav a:hover {
-      color: #00ffc3;
-    }
-
-    section {
-      padding: 5rem 2rem;
-      max-width: 1000px;
-      margin: auto;
-      color: #fff;
-      animation: fadeInUp 1s ease;
-    }
-
-    h2 {
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
-      color: #00ffc3;
-    }
-
-    p, li {
-      font-size: 1.2rem;
-      line-height: 1.6;
-      margin-bottom: 1rem;
+      transform: scale(1.1);
     }
 
     footer {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
       text-align: center;
-      padding: 2rem;
-      background: rgba(0, 0, 0, 0.6);
-      color: #ccc;
-      backdrop-filter: blur(10px);
+      color: white;
+      font-size: 14px;
     }
 
-    ul {
-      padding-left: 1.5rem;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
 
-  <!-- 🎬 Video de fondo -->
-  <video class="bg-video" autoplay muted loop playsinline id="bgVideo">
-    <source src="video.mp4" type="video/mp4" />
+  <video class="bg-video" autoplay muted loop playsinline>
+    <source src="fondo.mp4" type="video/mp4" />
     Tu navegador no soporta video.
   </video>
 
-  <header>
-    <h1>Bots por Dv.yer Orosco Bernaola</h1>
+  <div class="content">
+    <header>Panel de Bots - Dv.yer Orosco Bernaola</header>
+
     <nav>
-      <a href="#info">Información</a>
-      <a href="#bots">Bots</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contacto">Contacto</a>
+      <a href="#informacion">Información de Bots</a>
+      <a href="#bots">Bots del Creador</a>
+      <a href="#faq">Preguntas Frecuentes</a>
+      <a href="#contacto">Contáctame</a>
     </nav>
-  </header>
 
-  <section id="info">
-    <h2>Información de Bots</h2>
-    <p>Bienvenido al panel oficial de bots desarrollados por Dv.yer Orosco Bernaola. Aquí podrás vincular tu número de WhatsApp con uno de nuestros bots inteligentes.</p>
-  </section>
-
-  <section id="bots">
-    <h2>Bots del Creador</h2>
-    <ul>
-      <li>🤖 HutaoBot - Asistente Inteligente</li>
-      <li>🥷 UchihaAI - Ninja Style</li>
-      <li>🧙‍♂️ Black Clover - Mágico y poderoso</li>
-    </ul>
-  </section>
-
-  <section id="faq">
-    <h2>Preguntas Frecuentes</h2>
-    <p><strong>¿Cómo vinculo mi número con el bot?</strong> Recibirás un código único para conectarte.</p>
-    <p><strong>¿El bot funciona 24/7?</strong> Sí, mientras el plan de hosting esté activo.</p>
-  </section>
-
-  <section id="contacto">
-    <h2>Contáctame</h2>
-    <p>Email: veyerbots@gmail.com</p>
-    <p>WhatsApp: +123456789</p>
-  </section>
+    <h1 style="margin-top: 60px;">Bienvenido a tu Panel de Vinculación</h1>
+    <p>Genera tu código único para conectar tu WhatsApp con tu bot de manera segura.</p>
+  </div>
 
   <footer>
-    &copy; 2025 Dv.yer Orosco Bernaola - Todos los derechos reservados
+    Creado por Dv.yer Orosco Bernaola © 2025
   </footer>
-
-  <script>
-    // Reproducir con sonido al hacer clic
-    const video = document.getElementById("bgVideo");
-    window.addEventListener('click', () => {
-      video.muted = false;
-      video.play();
-    });
-  </script>
 </body>
 </html>
