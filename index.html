@@ -2,103 +2,154 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Panel de Bots - Dv.yer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Página de Bot - Dv.yer Orosco Bernaola</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     body, html {
       height: 100%;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
     }
 
-    .bg-video {
+    video.bg-video {
       position: fixed;
-      right: 0;
-      bottom: 0;
+      top: 0;
+      left: 0;
       min-width: 100%;
       min-height: 100%;
       z-index: -1;
       object-fit: cover;
     }
 
-    .content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      color: white;
-      padding: 60px 20px;
-      animation: fadeIn 2s ease;
-    }
-
-    header {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 20px;
-      font-size: 2em;
-      font-weight: bold;
-      border-bottom: 2px solid white;
-    }
-
     nav {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 1rem 2rem;
       display: flex;
-      justify-content: center;
-      gap: 25px;
-      padding: 15px;
-      background: rgba(0, 0, 0, 0.4);
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(5px);
     }
 
-    nav a {
-      color: white;
-      text-decoration: ease;
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+      animation: slideIn 1s ease-in-out;
     }
 
-    nav a:hover {
-      transform: scale(1.1);
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #00ffee;
+    }
+
+    main {
+      color: #fff;
+      padding: 3rem;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(3px);
+      animation: fadeIn 2s ease-in;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
     footer {
-      position: absolute;
-      bottom: 10px;
-      width: 100%;
+      padding: 1rem;
       text-align: center;
-      color: white;
-      font-size: 14px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #ccc;
+      position: relative;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(-100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
+      from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
 
+  <!-- Video de fondo -->
   <video class="bg-video" autoplay muted loop playsinline>
-    <source src="fondo.mp4" type="video/mp4" />
-    Tu navegador no soporta video.
+    <source src="media/fondo.mp4" type="video/mp4" />
+    Tu navegador no soporta videos HTML5.
   </video>
 
-  <div class="content">
-    <header>Panel de Bots - Dv.yer Orosco Bernaola</header>
+  <!-- Menú superior -->
+  <nav>
+    <div class="logo">Dv.yer Bot</div>
+    <ul>
+      <li><a href="#info">Información de Bots</a></li>
+      <li><a href="#bots">Bots del Creador</a></li>
+      <li><a href="#faq">Preguntas Frecuentes</a></li>
+      <li><a href="#contacto">Contáctame</a></li>
+    </ul>
+  </nav>
 
-    <nav>
-      <a href="#informacion">Información de Bots</a>
-      <a href="#bots">Bots del Creador</a>
-      <a href="#faq">Preguntas Frecuentes</a>
-      <a href="#contacto">Contáctame</a>
-    </nav>
+  <!-- Contenido principal -->
+  <main>
+    <h1>Bienvenido a la Web Oficial de Dv.yer</h1>
+    <p>Conecta tu WhatsApp con nuestros bots personalizados. Recibe un código único y comienza a usar tu asistente ahora.</p>
+  </main>
 
-    <h1 style="margin-top: 60px;">Bienvenido a tu Panel de Vinculación</h1>
-    <p>Genera tu código único para conectar tu WhatsApp con tu bot de manera segura.</p>
-  </div>
+  <!-- Secciones -->
+  <section id="info" style="padding: 2rem; color: white; text-align: center;">
+    <h2>Información de Bots</h2>
+    <p>Todos nuestros bots están diseñados para ayudarte en WhatsApp con comandos, IA y más.</p>
+  </section>
+
+  <section id="bots" style="padding: 2rem; color: white; text-align: center;">
+    <h2>Bots del Creador</h2>
+    <p>Explora todos los bots desarrollados por Dv.yer Orosco Bernaola y accede a sus funciones especiales.</p>
+  </section>
+
+  <section id="faq" style="padding: 2rem; color: white; text-align: center;">
+    <h2>Preguntas Frecuentes</h2>
+    <p>¿Tienes dudas sobre cómo vincular tu número? Aquí tienes las respuestas.</p>
+  </section>
+
+  <section id="contacto" style="padding: 2rem; color: white; text-align: center;">
+    <h2>Contáctame</h2>
+    <p>¿Necesitas soporte? Escríbeme directamente por WhatsApp o Telegram.</p>
+  </section>
 
   <footer>
-    Creado por Dv.yer Orosco Bernaola © 2025
+    © 2025 Creado por Dv.yer Orosco Bernaola
   </footer>
+
 </body>
 </html>
