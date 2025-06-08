@@ -3,174 +3,152 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Página de Bot - Dv.yer Orosco Bernaola</title>
+  <title>Vincula tu Bot - Dv.yer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
-    body, html {
-      height: 100%;
-      font-family: 'Segoe UI', sans-serif;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+      overflow: hidden;
+      position: relative;
+      min-height: 100vh;
     }
 
-    video.bg-video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      min-width: 100%;
-      min-height: 100%;
+    .background {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(circle at top left, #1f1f1f, #000);
+      animation: backgroundShift 15s infinite alternate;
       z-index: -1;
-      object-fit: cover;
     }
 
-    nav {
-      background: rgba(0, 0, 0, 0.5);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(6px);
+    @keyframes backgroundShift {
+      0% { background-position: left top; }
+      100% { background-position: right bottom; }
     }
 
-    nav .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #fff;
-      animation: slideIn 1s ease-in-out;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    nav ul li a:hover {
-      color: #00ffee;
-    }
-
-    main {
-      color: #fff;
-      padding: 4rem 2rem;
+    .container {
+      max-width: 500px;
+      margin: auto;
       text-align: center;
-      background: rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(3px);
-      animation: fadeIn 2s ease-in;
+      padding: 100px 20px 40px;
     }
 
     h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      animation: float 3s ease-in-out infinite;
+      font-size: 2.4rem;
+      margin-bottom: 10px;
+      animation: fadeIn 1.5s ease-out;
     }
 
-    p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0 auto;
-      animation: fadeIn 2s ease-in;
+    .description {
+      color: #aaa;
+      font-size: 1rem;
+      margin-bottom: 30px;
+      animation: fadeIn 1.8s ease-out;
     }
 
-    section {
-      padding: 3rem 2rem;
+    .code-box {
+      background: rgba(30, 30, 30, 0.9);
+      border: 2px dashed #00ff99;
+      padding: 20px;
+      font-size: 1.8rem;
+      font-weight: bold;
+      border-radius: 14px;
+      margin-bottom: 25px;
+      user-select: all;
+      letter-spacing: 4px;
+      transition: all 0.3s ease;
+      animation: fadeIn 2s ease-out;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #00ffcc, #0077ff);
+      border: none;
+      padding: 15px 40px;
+      font-size: 1rem;
       color: white;
-      text-align: center;
-      background: rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(2px);
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0, 255, 204, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeIn 2.2s ease-out;
     }
 
-    footer {
-      padding: 1rem;
-      text-align: center;
-      background-color: rgba(0, 0, 0, 0.5);
-      color: #ccc;
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 30px rgba(0, 255, 204, 0.4);
     }
 
-    @keyframes slideIn {
-      from { transform: translateX(-100%); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
+    .footer {
+      margin-top: 50px;
+      font-size: 0.9rem;
+      color: #666;
+      animation: fadeIn 2.4s ease-out;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0); }
+    .icon {
+      font-size: 3rem;
+      color: #00ffcc;
+      margin-bottom: 20px;
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
     }
   </style>
 </head>
 <body>
+  <div class="background"></div>
 
-  <!-- 🎥 Video de fondo -->
-  <video class="bg-video" autoplay muted loop playsinline>
-    <source src="fondo.mp4" type="video/mp4" />
-    Tu navegador no soporta videos HTML5.
-  </video>
+  <div class="container">
+    <div class="icon"><i class="fas fa-robot"></i></div>
+    <h1>Genera tu Código Único</h1>
+    <p class="description">Con este código podrás conectar tu WhatsApp al bot de Dv.yer</p>
+    <div id="codeBox" class="code-box">------</div>
+    <button id="connectBtn" class="btn">
+      <i class="fas fa-link"></i> Conectar
+    </button>
+    <div class="footer">© 2025 Dv.yer Orosco Bernaola</div>
+  </div>
 
-  <!-- 🌐 Navegación -->
-  <nav>
-    <div class="logo">Dv.yer Bot</div>
-    <ul>
-      <li><a href="#info">Información de Bots</a></li>
-      <li><a href="#bots">Bots del Creador</a></li>
-      <li><a href="#faq">Preguntas Frecuentes</a></li>
-      <li><a href="#contacto">Contáctame</a></li>
-    </ul>
-  </nav>
+  <script>
+    function generarCodigo() {
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      let codigo = '';
+      for (let i = 0; i < 6; i++) {
+        codigo += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      return codigo;
+    }
 
-  <!-- 🏠 Página principal -->
-  <main>
-    <h1>Bienvenido a la Web Oficial de Dv.yer</h1>
-    <p>Conecta tu WhatsApp con nuestros bots personalizados. Recibe un código único y comienza a usar tu asistente ahora mismo.</p>
-  </main>
+    document.addEventListener("DOMContentLoaded", () => {
+      const codeBox = document.getElementById("codeBox");
+      const connectBtn = document.getElementById("connectBtn");
+      const codigo = generarCodigo();
+      codeBox.innerText = codigo;
 
-  <!-- ℹ️ Sección: Información -->
-  <section id="info">
-    <h2>Información de Bots</h2>
-    <p>Todos nuestros bots están diseñados para ayudarte en WhatsApp con comandos, IA, entretenimiento y más funciones.</p>
-  </section>
-
-  <!-- 🤖 Sección: Bots del creador -->
-  <section id="bots">
-    <h2>Bots del Creador</h2>
-    <p>Explora todos los bots desarrollados por Dv.yer Orosco Bernaola. Cada uno es único y con funciones personalizadas.</p>
-  </section>
-
-  <!-- ❓ Sección: Preguntas Frecuentes -->
-  <section id="faq">
-    <h2>Preguntas Frecuentes</h2>
-    <p>¿Tienes dudas sobre cómo vincular tu número de WhatsApp al bot? Aquí respondemos todo.</p>
-  </section>
-
-  <!-- 📬 Sección: Contacto -->
-  <section id="contacto">
-    <h2>Contáctame</h2>
-    <p>¿Necesitas soporte o quieres un bot exclusivo? Escríbeme directamente por WhatsApp o Telegram.</p>
-  </section>
-
-  <!-- ⚠️ Pie de página -->
-  <footer>
-    © 2025 Creado por Dv.yer Orosco Bernaola | Todos los derechos reservados.
-  </footer>
-
+      connectBtn.addEventListener("click", () => {
+        navigator.clipboard.writeText(codigo).then(() => {
+          alert(`✅ Código copiado: ${codigo}\n\nAhora pégalo en WhatsApp para vincularte con el bot.`);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
