@@ -12,61 +12,52 @@
     }
     html, body {
       height: 100%;
-      width: 100%;
       font-family: 'Poppins', sans-serif;
-      overflow-x: hidden;
-      color: #fff;
       background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
     }
-
     #background-video {
       position: fixed;
       top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      object-position: center;
-      z-index: -1;
-      background-color: transparent;
+      z-index: -2;
+      background-color: black;
     }
-
     .overlay {
       position: fixed;
       top: 0; left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
     }
-
     #intro {
       position: fixed;
       top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
       background: #000;
       display: flex;
       justify-content: center;
       align-items: center;
-      z-index: 9999;
+      z-index: 100;
       animation: fadeOut 2s ease 2s forwards;
     }
-
     #intro h1 {
       font-size: 2.5rem;
       color: #00ffee;
       animation: zoomIn 2s ease-out;
     }
-
     @keyframes fadeOut {
       to { opacity: 0; visibility: hidden; }
     }
-
     @keyframes zoomIn {
       0% { transform: scale(0.7); opacity: 0; }
       100% { transform: scale(1); opacity: 1; }
     }
-
     nav {
       position: sticky;
       top: 0;
@@ -78,180 +69,118 @@
       justify-content: space-between;
       align-items: center;
     }
-
     .logo {
       font-size: 1.6rem;
       font-weight: bold;
       color: #00ffee;
     }
-
     nav ul {
       list-style: none;
       display: flex;
       gap: 1.5rem;
-      flex-wrap: wrap;
     }
-
     nav ul li a {
       color: #fff;
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.3s ease;
     }
-
     nav ul li a:hover {
       color: #00ffee;
     }
-
     header {
+      padding: 100px 20px 60px;
       text-align: center;
-      padding: 120px 20px 80px;
-      z-index: 1;
-      position: relative;
     }
-
     header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
+      font-size: 2.5rem;
     }
-
     header p {
-      max-width: 700px;
-      margin: auto;
-      color: #ccc;
       font-size: 1.1rem;
+      color: #ccc;
+      max-width: 600px;
+      margin: 0 auto;
     }
-
     .btn {
-      margin-top: 30px;
-      background: linear-gradient(135deg, #00ffcc, #0077ff);
-      border: none;
-      padding: 15px 40px;
+      margin-top: 20px;
+      padding: 12px 30px;
       font-size: 1rem;
-      color: white;
-      border-radius: 10px;
+      background: linear-gradient(135deg, #00ffcc, #0077ff);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
       cursor: pointer;
-      box-shadow: 0 8px 20px rgba(0, 255, 204, 0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
     .btn:hover {
       transform: scale(1.05);
-      box-shadow: 0 8px 30px rgba(0, 255, 204, 0.4);
     }
-
     .code-box {
-      margin-top: 30px;
+      margin-top: 20px;
       font-size: 2rem;
-      letter-spacing: 5px;
-      background: rgba(0, 0, 0, 0.4);
-      padding: 20px;
-      border: 2px dashed #00ffcc;
-      border-radius: 10px;
+      letter-spacing: 4px;
+      background: rgba(0,0,0,0.5);
+      border: 2px dashed #00ffee;
+      padding: 15px 30px;
       display: inline-block;
-      user-select: all;
+      border-radius: 8px;
     }
-
     section {
-      padding: 80px 20px;
-      text-align: center;
+      padding: 60px 20px;
       max-width: 900px;
       margin: auto;
-      position: relative;
-      z-index: 1;
+      text-align: center;
     }
-
     section h2 {
-      font-size: 2rem;
       color: #00ffee;
-      margin-bottom: 1rem;
+      margin-bottom: 15px;
     }
-
-    section p {
-      color: #ccc;
-      font-size: 1rem;
-    }
-
     footer {
       text-align: center;
       padding: 2rem 1rem;
       background: rgba(0, 0, 0, 0.6);
       font-size: 0.9rem;
       color: #aaa;
-      position: relative;
-      z-index: 1;
     }
-
-    #musicBtn {
+    #musicBtn, #whatsapp-btn {
       position: fixed;
       bottom: 20px;
-      right: 20px;
-      z-index: 99;
-      background: rgba(0,0,0,0.7);
       border: none;
-      color: #00ffee;
-      font-size: 1.2rem;
-      padding: 12px 14px;
       border-radius: 50%;
+      padding: 12px;
+      font-size: 1.3rem;
+      z-index: 99;
       cursor: pointer;
     }
-
+    #musicBtn {
+      right: 20px;
+      background: rgba(0,0,0,0.7);
+      color: #00ffee;
+    }
     #whatsapp-btn {
-      position: fixed;
-      bottom: 20px;
       left: 20px;
       background-color: #25D366;
       color: white;
-      border: none;
-      border-radius: 50%;
-      padding: 14px 16px;
-      font-size: 1.5rem;
-      z-index: 99;
-      cursor: pointer;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
-    }
-
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      header h1 {
-        font-size: 2rem;
-      }
-
-      .btn {
-        width: 100%;
-        max-width: 300px;
-      }
-
-      .code-box {
-        font-size: 1.5rem;
-      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Intro animado -->
-  <div id="intro"><h1>Dv yer hola bienvenido a mi pagina web esta en desarollo falta temrinar asi qeu sis encuentra algun bug o error decirme por whsasp gracias</h1></div>
+  <!-- Intro -->
+  <div id="intro"><h1>Dv.yer Bot 🚀</h1></div>
 
   <!-- Video de fondo -->
-  <video id="background-video" autoplay muted loop playsinline preload="auto" poster="fondo.jpg">
+  <video id="background-video" autoplay muted loop playsinline>
     <source src="fondo.mp4" type="video/mp4">
-    Tu navegador no soporta videos en HTML5.
+    Tu navegador no soporta videos HTML5.
   </video>
-
   <div class="overlay"></div>
 
-  <!-- Audio MP3 -->
+  <!-- Audio -->
   <audio id="bg-music" loop>
     <source src="musica.mp3" type="audio/mp3">
   </audio>
   <button id="musicBtn" title="Activar/Desactivar Música">🎵</button>
 
-  <!-- Botón de WhatsApp -->
+  <!-- WhatsApp -->
   <a href="https://wa.me/51907376960" id="whatsapp-btn" title="Contáctame por WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
@@ -271,8 +200,7 @@
   <header>
     <h1>Bienvenido a Dv.yer Bot</h1>
     <p>Automatiza tu WhatsApp con inteligencia. ¡Obtén tu código único y empieza!</p>
-    <div id="codeBox" class="code-box">------</div>
-    <br />
+    <div id="codeBox" class="code-box">------</div><br>
     <button class="btn" id="generateBtn"><i class="fas fa-robot"></i> Generar Código</button>
   </header>
 
@@ -281,17 +209,14 @@
     <h2>Información de los Bots</h2>
     <p>Automatiza respuestas, comandos y más.</p>
   </section>
-
   <section id="bots">
     <h2>Lista de Bots</h2>
     <p>Bots personalizados y adaptables a ti.</p>
   </section>
-
   <section id="faq">
     <h2>Preguntas Frecuentes</h2>
     <p>¿Cómo me conecto? ¿Qué funciones tienen?</p>
   </section>
-
   <section id="contacto">
     <h2>Contáctame</h2>
     <p>¿Necesitas ayuda o un bot exclusivo? Escríbeme por <a href="https://wa.me/51907376960" style="color:#00ffee;">WhatsApp</a>.</p>
@@ -301,6 +226,7 @@
     © 2025 Dv.yer Orosco Bernaola. Todos los derechos reservados.
   </footer>
 
+  <!-- JS -->
   <script>
     function generarCodigo() {
       const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -321,7 +247,7 @@
         const nuevoCodigo = generarCodigo();
         codeBox.innerText = nuevoCodigo;
         navigator.clipboard.writeText(nuevoCodigo).then(() => {
-          alert(`✅ Código copiado: ${nuevoCodigo}\nPega este código en WhatsApp para conectarte al bot.`);
+          alert(`✅ Código copiado: ${nuevoCodigo}`);
         });
       });
 
@@ -335,16 +261,10 @@
         }
       });
 
-      // Reproducir video y música con interacción del usuario
       document.body.addEventListener("click", () => {
-        const video = document.getElementById("background-video");
-        if (video && video.paused) {
-          video.play().catch(() => {});
-        }
         music.play().catch(() => {});
       }, { once: true });
     });
   </script>
-
 </body>
 </html>
