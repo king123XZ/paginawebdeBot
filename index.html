@@ -1,8 +1,4 @@
-<!DOCTYPE html> <div id="intro" class="intro-screen">
-  <h1>Bienvenido a Dv.yer Bot</h1>
-  <p>Conectando con tu experiencia personalizada...</p>
-</div>
-
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -11,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
+    /* RESET & BASE */
     * {
       margin: 0;
       padding: 0;
@@ -21,46 +18,36 @@
       font-family: 'Poppins', sans-serif;
       color: #fff;
       background: #0f0f0f;
+      background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e'); /* Puedes cambiar este enlace */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
       overflow-x: hidden;
-      scroll-behavior: smooth;
     }
 
-    .background {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: radial-gradient(circle at top left, #1f1f1f, #000);
-      animation: backgroundShift 15s infinite alternate;
-      z-index: -1;
-    }
-
-    @keyframes backgroundShift {
-      0% { background-position: left top; }
-      100% { background-position: right bottom; }
-    }
-
+    /* NAVBAR */
     nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
       background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(8px);
-      padding: 1rem 2rem;
+      backdrop-filter: blur(10px);
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 999;
     }
 
-    nav .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
       color: #00ffee;
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 1.5rem;
+      gap: 2rem;
     }
 
     nav ul li a {
@@ -74,45 +61,33 @@
       color: #00ffee;
     }
 
+    /* HEADER */
     header {
       text-align: center;
       padding: 100px 20px 40px;
+      background: rgba(0, 0, 0, 0.5);
     }
 
     header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 10px;
+      font-size: 3rem;
+      margin-bottom: 1rem;
     }
 
     header p {
-      color: #aaa;
       font-size: 1.1rem;
+      color: #ccc;
       max-width: 700px;
       margin: 0 auto;
     }
 
-    .code-box {
-      background: rgba(30, 30, 30, 0.9);
-      border: 2px dashed #00ff99;
-      padding: 20px;
-      font-size: 1.8rem;
-      font-weight: bold;
-      border-radius: 14px;
-      margin: 30px auto;
-      max-width: 400px;
-      text-align: center;
-      letter-spacing: 4px;
-      user-select: all;
-      animation: fadeIn 1.5s ease-out;
-    }
-
     .btn {
+      margin-top: 30px;
       background: linear-gradient(135deg, #00ffcc, #0077ff);
       border: none;
-      padding: 15px 40px;
+      padding: 15px 35px;
       font-size: 1rem;
       color: white;
-      border-radius: 12px;
+      border-radius: 10px;
       cursor: pointer;
       box-shadow: 0 8px 20px rgba(0, 255, 204, 0.2);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -123,11 +98,14 @@
       box-shadow: 0 8px 30px rgba(0, 255, 204, 0.4);
     }
 
+    /* SECTION */
     section {
-      padding: 60px 20px;
+      padding: 80px 20px;
       text-align: center;
-      max-width: 900px;
-      margin: auto;
+      background-color: rgba(0, 0, 0, 0.6);
+      margin: 30px auto;
+      max-width: 1000px;
+      border-radius: 14px;
     }
 
     section h2 {
@@ -143,90 +121,33 @@
       margin: 0 auto;
     }
 
+    /* FOOTER */
     footer {
       text-align: center;
-      padding: 1rem;
-      background: rgba(0, 0, 0, 0.5);
+      padding: 2rem 1rem;
+      background: rgba(0, 0, 0, 0.7);
       font-size: 0.9rem;
-      color: #888;
+      color: #aaa;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
-</head>
-<body>
-  <div class="background"></div>
-
-  <!-- Navegación -->
-  <nav>
-    <div class="logo">Dv.yer Bot</div>
-    <ul>
-      <li><a href="#info">Información de Bots</a></li>
-      <li><a href="#bots">Bots del Creador</a></li>
-      <li><a href="#faq">Preguntas Frecuentes</a></li>
-      <li><a href="#contacto">Contáctame</a></li>
-    </ul>
-  </nav>
-
-  <!-- Encabezado + Generador de Código -->
-  <header>
-    <h1>Bienvenido a la Web Oficial de Dv.yer</h1>
-    <p>Conecta tu WhatsApp con nuestros bots personalizados. Recibe un código único y comienza a usar tu asistente ahora mismo.</p>
-    <div id="codeBox" class="code-box">------</div>
-    <button id="connectBtn" class="btn"><i class="fas fa-link"></i> Obtener Código</button>
-  </header>
-
-  <!-- Secciones -->
-  <section id="info">
-    <h2>Información de Bots</h2>
-    <p>Todos nuestros bots están diseñados para ayudarte en WhatsApp con comandos, IA, entretenimiento y más funciones.</p>
-  </section>
-
-  <section id="bots">
-    <h2>Bots del Creador</h2>
-    <p>Explora todos los bots desarrollados por Dv.yer Orosco Bernaola. Cada uno es único y con funciones personalizadas.</p>
-  </section>
-
-  <section id="faq">
-    <h2>Preguntas Frecuentes</h2>
-    <p>¿Tienes dudas sobre cómo vincular tu número de WhatsApp al bot? Aquí respondemos todo.</p>
-  </section>
-
-  <section id="contacto">
-    <h2>Contáctame</h2>
-    <p>¿Necesitas soporte o quieres un bot exclusivo? Escríbeme directamente por WhatsApp o Telegram.</p>
-  </section>
-
-  <!-- Pie de página -->
-  <footer>
-    © 2025 Creado por Dv.yer Orosco Bernaola | Todos los derechos reservados.
-  </footer>
-
-  <script>
-    function generarCodigo() {
-      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-      let codigo = '';
-      for (let i = 0; i < 6; i++) {
-        codigo += chars.charAt(Math.floor(Math.random() * chars.length));
+    /* RESPONSIVE */
+    @media screen and (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
       }
-      return codigo;
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 300px;
+      }
     }
 
-    document.addEventListener("DOMContentLoaded", () => {
-      const codeBox = document.getElementById("codeBox");
-      const connectBtn = document.getElementById("connectBtn");
-      const codigo = generarCodigo();
-      codeBox.innerText = codigo;
+    /* OPTIONAL: INTRO SCREEN (puedes eliminar si no deseas) */
+    /*
 
-      connectBtn.addEventListener("click", () => {
-        navigator.clipboard.writeText(codigo).then(() => {
-          alert(`✅ Código copiado: ${codigo}\n\nPega este código en WhatsApp para conectarte al bot.`);
-        });
-      });
-    });
-  </script>
-</body>
-</html>
+    
