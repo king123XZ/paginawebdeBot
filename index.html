@@ -27,7 +27,7 @@
       object-fit: cover;
       object-position: center;
       z-index: -1;
-      background-color: black;
+      background-color: transparent;
     }
 
     .overlay {
@@ -235,11 +235,12 @@
 <body>
 
   <!-- Intro animado -->
-  <div id="intro"><h1>Dv.yer Bot 🚀</h1></div>
+  <div id="intro"><h1>Dv yer hola bienvenido a mi pagina web esta en desarollo falta temrinar asi qeu sis encuentra algun bug o error decirme por whsasp gracias</h1></div>
 
   <!-- Video de fondo -->
-  <video id="background-video" autoplay muted loop playsinline preload="auto">
+  <video id="background-video" autoplay muted loop playsinline preload="auto" poster="fondo.jpg">
     <source src="fondo.mp4" type="video/mp4">
+    Tu navegador no soporta videos en HTML5.
   </video>
 
   <div class="overlay"></div>
@@ -334,8 +335,12 @@
         }
       });
 
-      // Autoplay en algunos dispositivos requiere interacción
+      // Reproducir video y música con interacción del usuario
       document.body.addEventListener("click", () => {
+        const video = document.getElementById("background-video");
+        if (video && video.paused) {
+          video.play().catch(() => {});
+        }
         music.play().catch(() => {});
       }, { once: true });
     });
