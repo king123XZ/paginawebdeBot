@@ -8,29 +8,26 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
-
     html, body {
       height: 100%;
       width: 100%;
       font-family: 'Poppins', sans-serif;
       overflow-x: hidden;
       color: #fff;
+      background-color: #000;
     }
 
-    /* Video como fondo */
     #background-video {
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       width: 100vw;
       height: 100vh;
       object-fit: cover;
+      object-position: center;
       z-index: -1;
-      pointer-events: none;
+      background-color: black;
     }
 
     .overlay {
@@ -40,6 +37,34 @@
       height: 100%;
       background: rgba(0, 0, 0, 0.4);
       z-index: 0;
+    }
+
+    #intro {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      animation: fadeOut 2s ease 2s forwards;
+    }
+
+    #intro h1 {
+      font-size: 2.5rem;
+      color: #00ffee;
+      animation: zoomIn 2s ease-out;
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
+    }
+
+    @keyframes zoomIn {
+      0% { transform: scale(0.7); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
     }
 
     nav {
@@ -157,6 +182,35 @@
       z-index: 1;
     }
 
+    #musicBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 99;
+      background: rgba(0,0,0,0.7);
+      border: none;
+      color: #00ffee;
+      font-size: 1.2rem;
+      padding: 12px 14px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    #whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #25D366;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 14px 16px;
+      font-size: 1.5rem;
+      z-index: 99;
+      cursor: pointer;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+    }
+
     @media (max-width: 768px) {
       nav ul {
         flex-direction: column;
@@ -180,16 +234,28 @@
 </head>
 <body>
 
+  <!-- Intro animado -->
+  <div id="intro"><h1>Dv.yer Bot 🚀</h1></div>
+
   <!-- Video de fondo -->
-  <video id="background-video" autoplay muted loop playsinline>
+  <video id="background-video" autoplay muted loop playsinline preload="auto">
     <source src="fondo.mp4" type="video/mp4">
-    Tu navegador no soporta video HTML5.
   </video>
 
-  <!-- Oscurecimiento encima del video -->
   <div class="overlay"></div>
 
-  <!-- Menú de navegación -->
+  <!-- Audio MP3 -->
+  <audio id="bg-music" loop>
+    <source src="musica.mp3" type="audio/mp3">
+  </audio>
+  <button id="musicBtn" title="Activar/Desactivar Música">🎵</button>
+
+  <!-- Botón de WhatsApp -->
+  <a href="https://wa.me/51907376960" id="whatsapp-btn" title="Contáctame por WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Menú -->
   <nav>
     <div class="logo">Dv.yer Bot</div>
     <ul>
@@ -200,7 +266,7 @@
     </ul>
   </nav>
 
-  <!-- Encabezado principal -->
+  <!-- Encabezado -->
   <header>
     <h1>Bienvenido a Dv.yer Bot</h1>
     <p>Automatiza tu WhatsApp con inteligencia. ¡Obtén tu código único y empieza!</p>
@@ -209,33 +275,31 @@
     <button class="btn" id="generateBtn"><i class="fas fa-robot"></i> Generar Código</button>
   </header>
 
-  <!-- Secciones informativas -->
+  <!-- Secciones -->
   <section id="info">
     <h2>Información de los Bots</h2>
-    <p>Te permiten automatizar respuestas, comandos, administración de grupos y mucho más.</p>
+    <p>Automatiza respuestas, comandos y más.</p>
   </section>
 
   <section id="bots">
     <h2>Lista de Bots</h2>
-    <p>Todos nuestros bots son personalizados y adaptables a cualquier necesidad.</p>
+    <p>Bots personalizados y adaptables a ti.</p>
   </section>
 
   <section id="faq">
     <h2>Preguntas Frecuentes</h2>
-    <p>¿Cómo me conecto? ¿Qué funciones tienen? ¿Es seguro? Todo explicado aquí.</p>
+    <p>¿Cómo me conecto? ¿Qué funciones tienen?</p>
   </section>
 
   <section id="contacto">
     <h2>Contáctame</h2>
-    <p>¿Quieres un bot exclusivo o necesitas ayuda? Escríbeme por <a href="https://wa.me/51907376960" style="color:#00ffee;">WhatsApp</a>.</p>
+    <p>¿Necesitas ayuda o un bot exclusivo? Escríbeme por <a href="https://wa.me/51907376960" style="color:#00ffee;">WhatsApp</a>.</p>
   </section>
 
-  <!-- Pie de página -->
   <footer>
     © 2025 Dv.yer Orosco Bernaola. Todos los derechos reservados.
   </footer>
 
-  <!-- JavaScript -->
   <script>
     function generarCodigo() {
       const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -249,21 +313,30 @@
     document.addEventListener("DOMContentLoaded", () => {
       const codeBox = document.getElementById("codeBox");
       const generateBtn = document.getElementById("generateBtn");
+      const music = document.getElementById("bg-music");
+      const musicBtn = document.getElementById("musicBtn");
 
       generateBtn.addEventListener("click", () => {
         const nuevoCodigo = generarCodigo();
         codeBox.innerText = nuevoCodigo;
-
         navigator.clipboard.writeText(nuevoCodigo).then(() => {
           alert(`✅ Código copiado: ${nuevoCodigo}\nPega este código en WhatsApp para conectarte al bot.`);
         });
       });
 
-      // Activar sonido al primer clic/tap en el sitio
-      const video = document.getElementById('background-video');
-      document.body.addEventListener('click', () => {
-        video.muted = false;
-        video.play();
+      musicBtn.addEventListener("click", () => {
+        if (music.paused) {
+          music.play();
+          musicBtn.innerText = "🔊";
+        } else {
+          music.pause();
+          musicBtn.innerText = "🔇";
+        }
+      });
+
+      // Autoplay en algunos dispositivos requiere interacción
+      document.body.addEventListener("click", () => {
+        music.play().catch(() => {});
       }, { once: true });
     });
   </script>
