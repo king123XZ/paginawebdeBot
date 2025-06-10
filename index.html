@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dv.yer Bot - Web Oficial</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dv.yer Bot - Página Oficial</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
@@ -15,28 +15,30 @@
 
     html, body {
       height: 100%;
+      width: 100%;
       font-family: 'Poppins', sans-serif;
-      color: white;
       overflow-x: hidden;
+      color: #fff;
     }
 
-    /* Fondo de video */
+    /* Video como fondo */
     #background-video {
       position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       object-fit: cover;
       z-index: -1;
+      pointer-events: none;
     }
 
-    /* Overlay para oscurecer ligeramente */
     .overlay {
       position: fixed;
       top: 0; left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.4);
       z-index: 0;
     }
 
@@ -53,7 +55,7 @@
     }
 
     .logo {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-weight: bold;
       color: #00ffee;
     }
@@ -62,6 +64,7 @@
       list-style: none;
       display: flex;
       gap: 1.5rem;
+      flex-wrap: wrap;
     }
 
     nav ul li a {
@@ -83,12 +86,12 @@
     }
 
     header h1 {
-      font-size: 3rem;
+      font-size: 2.8rem;
       margin-bottom: 1rem;
     }
 
     header p {
-      max-width: 600px;
+      max-width: 700px;
       margin: auto;
       color: #ccc;
       font-size: 1.1rem;
@@ -150,8 +153,8 @@
       background: rgba(0, 0, 0, 0.6);
       font-size: 0.9rem;
       color: #aaa;
-      z-index: 1;
       position: relative;
+      z-index: 1;
     }
 
     @media (max-width: 768px) {
@@ -168,21 +171,25 @@
         width: 100%;
         max-width: 300px;
       }
+
+      .code-box {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
 
   <!-- Video de fondo -->
-  <video id="background-video" autoplay loop muted playsinline>
+  <video id="background-video" autoplay muted loop playsinline>
     <source src="fondo.mp4" type="video/mp4">
-    Tu navegador no soporta videos HTML5.
+    Tu navegador no soporta video HTML5.
   </video>
 
-  <!-- Overlay oscurecedor -->
+  <!-- Oscurecimiento encima del video -->
   <div class="overlay"></div>
 
-  <!-- Menú -->
+  <!-- Menú de navegación -->
   <nav>
     <div class="logo">Dv.yer Bot</div>
     <ul>
@@ -193,40 +200,42 @@
     </ul>
   </nav>
 
-  <!-- Encabezado -->
+  <!-- Encabezado principal -->
   <header>
     <h1>Bienvenido a Dv.yer Bot</h1>
-    <p>Automatiza WhatsApp con inteligencia y estilo. ¡Obtén tu código y comienza ya!</p>
+    <p>Automatiza tu WhatsApp con inteligencia. ¡Obtén tu código único y empieza!</p>
     <div id="codeBox" class="code-box">------</div>
-    <br>
-    <button class="btn" id="generateBtn"><i class="fas fa-magic"></i> Generar Código</button>
+    <br />
+    <button class="btn" id="generateBtn"><i class="fas fa-robot"></i> Generar Código</button>
   </header>
 
-  <!-- Secciones -->
+  <!-- Secciones informativas -->
   <section id="info">
     <h2>Información de los Bots</h2>
-    <p>Diseñados para automatizar respuestas, usar comandos inteligentes y ayudarte en tus tareas diarias.</p>
+    <p>Te permiten automatizar respuestas, comandos, administración de grupos y mucho más.</p>
   </section>
 
   <section id="bots">
     <h2>Lista de Bots</h2>
-    <p>Cada bot tiene funciones únicas, personalizadas según tus necesidades.</p>
+    <p>Todos nuestros bots son personalizados y adaptables a cualquier necesidad.</p>
   </section>
 
   <section id="faq">
     <h2>Preguntas Frecuentes</h2>
-    <p>¿Cómo conecto mi WhatsApp? ¿Qué puedo hacer con el bot? Aquí resolvemos tus dudas.</p>
+    <p>¿Cómo me conecto? ¿Qué funciones tienen? ¿Es seguro? Todo explicado aquí.</p>
   </section>
 
   <section id="contacto">
     <h2>Contáctame</h2>
-    <p>Escríbeme a <a href="https://wa.me/tu_numero" style="color:#00ffee;">WhatsApp</a> para bots personalizados o ayuda técnica.</p>
+    <p>¿Quieres un bot exclusivo o necesitas ayuda? Escríbeme por <a href="https://wa.me/51907376960" style="color:#00ffee;">WhatsApp</a>.</p>
   </section>
 
+  <!-- Pie de página -->
   <footer>
     © 2025 Dv.yer Orosco Bernaola. Todos los derechos reservados.
   </footer>
 
+  <!-- JavaScript -->
   <script>
     function generarCodigo() {
       const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -250,7 +259,7 @@
         });
       });
 
-      // Desmutear el video al primer clic del usuario
+      // Activar sonido al primer clic/tap en el sitio
       const video = document.getElementById('background-video');
       document.body.addEventListener('click', () => {
         video.muted = false;
@@ -258,5 +267,6 @@
       }, { once: true });
     });
   </script>
+
 </body>
 </html>
