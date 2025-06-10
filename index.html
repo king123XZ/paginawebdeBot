@@ -1,63 +1,45 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dv.yer Bot - Página Oficial</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dv.yer Bot - Web Oficial</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     * {
-      margin: 0; padding: 0; box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
+
     html, body {
       height: 100%;
       font-family: 'Poppins', sans-serif;
-      background-color: #000;
-      color: #fff;
+      color: white;
       overflow-x: hidden;
     }
+
+    /* Fondo de video */
     #background-video {
       position: fixed;
       top: 0; left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      z-index: -2;
-      background-color: black;
+      z-index: -1;
     }
+
+    /* Overlay para oscurecer ligeramente */
     .overlay {
       position: fixed;
       top: 0; left: 0;
       width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0.5);
-      z-index: -1;
+      z-index: 0;
     }
-    #intro {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 100;
-      animation: fadeOut 2s ease 2s forwards;
-    }
-    #intro h1 {
-      font-size: 2.5rem;
-      color: #00ffee;
-      animation: zoomIn 2s ease-out;
-    }
-    @keyframes fadeOut {
-      to { opacity: 0; visibility: hidden; }
-    }
-    @keyframes zoomIn {
-      0% { transform: scale(0.7); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
+
     nav {
       position: sticky;
       top: 0;
@@ -69,121 +51,136 @@
       justify-content: space-between;
       align-items: center;
     }
+
     .logo {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       font-weight: bold;
       color: #00ffee;
     }
+
     nav ul {
       list-style: none;
       display: flex;
       gap: 1.5rem;
     }
+
     nav ul li a {
       color: #fff;
       text-decoration: none;
       font-weight: 500;
+      transition: color 0.3s ease;
     }
+
     nav ul li a:hover {
       color: #00ffee;
     }
+
     header {
-      padding: 100px 20px 60px;
       text-align: center;
+      padding: 120px 20px 80px;
+      z-index: 1;
+      position: relative;
     }
+
     header h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
+      margin-bottom: 1rem;
     }
+
     header p {
-      font-size: 1.1rem;
-      color: #ccc;
       max-width: 600px;
-      margin: 0 auto;
+      margin: auto;
+      color: #ccc;
+      font-size: 1.1rem;
     }
+
     .btn {
-      margin-top: 20px;
-      padding: 12px 30px;
-      font-size: 1rem;
+      margin-top: 30px;
       background: linear-gradient(135deg, #00ffcc, #0077ff);
-      color: #fff;
       border: none;
-      border-radius: 8px;
+      padding: 15px 40px;
+      font-size: 1rem;
+      color: white;
+      border-radius: 10px;
       cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0, 255, 204, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
     .btn:hover {
       transform: scale(1.05);
+      box-shadow: 0 8px 30px rgba(0, 255, 204, 0.4);
     }
+
     .code-box {
-      margin-top: 20px;
+      margin-top: 30px;
       font-size: 2rem;
-      letter-spacing: 4px;
-      background: rgba(0,0,0,0.5);
-      border: 2px dashed #00ffee;
-      padding: 15px 30px;
+      letter-spacing: 5px;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 20px;
+      border: 2px dashed #00ffcc;
+      border-radius: 10px;
       display: inline-block;
-      border-radius: 8px;
+      user-select: all;
     }
+
     section {
-      padding: 60px 20px;
+      padding: 80px 20px;
+      text-align: center;
       max-width: 900px;
       margin: auto;
-      text-align: center;
+      position: relative;
+      z-index: 1;
     }
+
     section h2 {
+      font-size: 2rem;
       color: #00ffee;
-      margin-bottom: 15px;
+      margin-bottom: 1rem;
     }
+
+    section p {
+      color: #ccc;
+      font-size: 1rem;
+    }
+
     footer {
       text-align: center;
       padding: 2rem 1rem;
       background: rgba(0, 0, 0, 0.6);
       font-size: 0.9rem;
       color: #aaa;
+      z-index: 1;
+      position: relative;
     }
-    #musicBtn, #whatsapp-btn {
-      position: fixed;
-      bottom: 20px;
-      border: none;
-      border-radius: 50%;
-      padding: 12px;
-      font-size: 1.3rem;
-      z-index: 99;
-      cursor: pointer;
-    }
-    #musicBtn {
-      right: 20px;
-      background: rgba(0,0,0,0.7);
-      color: #00ffee;
-    }
-    #whatsapp-btn {
-      left: 20px;
-      background-color: #25D366;
-      color: white;
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 300px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Intro -->
-  <div id="intro"><h1>Dv.yer Bot 🚀</h1></div>
-
   <!-- Video de fondo -->
-  <video id="background-video" autoplay muted loop playsinline>
+  <video id="background-video" autoplay loop muted playsinline>
     <source src="fondo.mp4" type="video/mp4">
     Tu navegador no soporta videos HTML5.
   </video>
+
+  <!-- Overlay oscurecedor -->
   <div class="overlay"></div>
-
-  <!-- Audio -->
-  <audio id="bg-music" loop>
-    <source src="musica.mp3" type="audio/mp3">
-  </audio>
-  <button id="musicBtn" title="Activar/Desactivar Música">🎵</button>
-
-  <!-- WhatsApp -->
-  <a href="https://wa.me/51907376960" id="whatsapp-btn" title="Contáctame por WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
 
   <!-- Menú -->
   <nav>
@@ -199,34 +196,37 @@
   <!-- Encabezado -->
   <header>
     <h1>Bienvenido a Dv.yer Bot</h1>
-    <p>Automatiza tu WhatsApp con inteligencia. ¡Obtén tu código único y empieza!</p>
-    <div id="codeBox" class="code-box">------</div><br>
-    <button class="btn" id="generateBtn"><i class="fas fa-robot"></i> Generar Código</button>
+    <p>Automatiza WhatsApp con inteligencia y estilo. ¡Obtén tu código y comienza ya!</p>
+    <div id="codeBox" class="code-box">------</div>
+    <br>
+    <button class="btn" id="generateBtn"><i class="fas fa-magic"></i> Generar Código</button>
   </header>
 
   <!-- Secciones -->
   <section id="info">
     <h2>Información de los Bots</h2>
-    <p>Automatiza respuestas, comandos y más.</p>
+    <p>Diseñados para automatizar respuestas, usar comandos inteligentes y ayudarte en tus tareas diarias.</p>
   </section>
+
   <section id="bots">
     <h2>Lista de Bots</h2>
-    <p>Bots personalizados y adaptables a ti.</p>
+    <p>Cada bot tiene funciones únicas, personalizadas según tus necesidades.</p>
   </section>
+
   <section id="faq">
     <h2>Preguntas Frecuentes</h2>
-    <p>¿Cómo me conecto? ¿Qué funciones tienen?</p>
+    <p>¿Cómo conecto mi WhatsApp? ¿Qué puedo hacer con el bot? Aquí resolvemos tus dudas.</p>
   </section>
+
   <section id="contacto">
     <h2>Contáctame</h2>
-    <p>¿Necesitas ayuda o un bot exclusivo? Escríbeme por <a href="https://wa.me/51907376960" style="color:#00ffee;">WhatsApp</a>.</p>
+    <p>Escríbeme a <a href="https://wa.me/tu_numero" style="color:#00ffee;">WhatsApp</a> para bots personalizados o ayuda técnica.</p>
   </section>
 
   <footer>
     © 2025 Dv.yer Orosco Bernaola. Todos los derechos reservados.
   </footer>
 
-  <!-- JS -->
   <script>
     function generarCodigo() {
       const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -240,29 +240,21 @@
     document.addEventListener("DOMContentLoaded", () => {
       const codeBox = document.getElementById("codeBox");
       const generateBtn = document.getElementById("generateBtn");
-      const music = document.getElementById("bg-music");
-      const musicBtn = document.getElementById("musicBtn");
 
       generateBtn.addEventListener("click", () => {
         const nuevoCodigo = generarCodigo();
         codeBox.innerText = nuevoCodigo;
+
         navigator.clipboard.writeText(nuevoCodigo).then(() => {
-          alert(`✅ Código copiado: ${nuevoCodigo}`);
+          alert(`✅ Código copiado: ${nuevoCodigo}\nPega este código en WhatsApp para conectarte al bot.`);
         });
       });
 
-      musicBtn.addEventListener("click", () => {
-        if (music.paused) {
-          music.play();
-          musicBtn.innerText = "🔊";
-        } else {
-          music.pause();
-          musicBtn.innerText = "🔇";
-        }
-      });
-
-      document.body.addEventListener("click", () => {
-        music.play().catch(() => {});
+      // Desmutear el video al primer clic del usuario
+      const video = document.getElementById('background-video');
+      document.body.addEventListener('click', () => {
+        video.muted = false;
+        video.play();
       }, { once: true });
     });
   </script>
