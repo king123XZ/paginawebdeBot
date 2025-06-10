@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dv.yer Bot - Página Oficial</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dv.yer Bot - Web Oficial</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     * {
       margin: 0;
@@ -13,58 +13,47 @@
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
+    html, body {
+      height: 100%;
       font-family: 'Poppins', sans-serif;
-      background: #0f0f0f url('https://ibb.co/gLR6LrYS') no-repeat center center fixed;
-      background-size: cover;
-      color: #fff;
+      color: white;
+      overflow-x: hidden;
     }
 
-    /* Intro animación */
-    #intro {
+    /* Fondo de video */
+    #background-video {
       position: fixed;
       top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      z-index: 9999;
-      animation: fadeOut 1s ease forwards;
-      animation-delay: 3s;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
     }
 
-    #intro h1 {
-      font-size: 2.5rem;
-      color: #00ffee;
-    }
-
-    @keyframes fadeOut {
-      to {
-        opacity: 0;
-        visibility: hidden;
-      }
+    /* Overlay para oscurecer ligeramente */
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
     }
 
     nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
       background: rgba(0, 0, 0, 0.6);
       backdrop-filter: blur(8px);
       padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
     .logo {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       font-weight: bold;
       color: #00ffee;
     }
@@ -89,8 +78,8 @@
     header {
       text-align: center;
       padding: 120px 20px 80px;
-      background: rgba(0, 0, 0, 0.5);
-      animation: fadeInUp 1s ease;
+      z-index: 1;
+      position: relative;
     }
 
     header h1 {
@@ -131,7 +120,6 @@
       padding: 20px;
       border: 2px dashed #00ffcc;
       border-radius: 10px;
-      animation: fadeIn 1.2s ease-in-out;
       display: inline-block;
       user-select: all;
     }
@@ -141,7 +129,8 @@
       text-align: center;
       max-width: 900px;
       margin: auto;
-      animation: fadeInUp 1.2s ease;
+      position: relative;
+      z-index: 1;
     }
 
     section h2 {
@@ -158,20 +147,11 @@
     footer {
       text-align: center;
       padding: 2rem 1rem;
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, 0.6);
       font-size: 0.9rem;
       color: #aaa;
-      margin-top: 60px;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+      z-index: 1;
+      position: relative;
     }
 
     @media (max-width: 768px) {
@@ -193,10 +173,14 @@
 </head>
 <body>
 
-  <!-- Intro -->
-  <div id="intro">
-    <h1>Bienvenido a Dv.yer Bot</h1>
-  </div>
+  <!-- Video de fondo -->
+  <video id="background-video" autoplay loop muted playsinline>
+    <source src="fondo.mp4" type="video/mp4">
+    Tu navegador no soporta videos HTML5.
+  </video>
+
+  <!-- Overlay oscurecedor -->
+  <div class="overlay"></div>
 
   <!-- Menú -->
   <nav>
@@ -211,40 +195,38 @@
 
   <!-- Encabezado -->
   <header>
-    <h1>Tu Bot de WhatsApp en Segundos</h1>
-    <p>Automatiza mensajes, responde comandos y más. ¡Todo desde tu WhatsApp!</p>
+    <h1>Bienvenido a Dv.yer Bot</h1>
+    <p>Automatiza WhatsApp con inteligencia y estilo. ¡Obtén tu código y comienza ya!</p>
     <div id="codeBox" class="code-box">------</div>
-    <br />
-    <button class="btn" id="generateBtn"><i class="fas fa-robot"></i> Generar Código</button>
+    <br>
+    <button class="btn" id="generateBtn"><i class="fas fa-magic"></i> Generar Código</button>
   </header>
 
   <!-- Secciones -->
   <section id="info">
     <h2>Información de los Bots</h2>
-    <p>Nuestros bots te permiten automatizar tareas, responder mensajes, administrar grupos y mucho más.</p>
+    <p>Diseñados para automatizar respuestas, usar comandos inteligentes y ayudarte en tus tareas diarias.</p>
   </section>
 
   <section id="bots">
     <h2>Lista de Bots</h2>
-    <p>Conoce nuestros bots personalizados y hechos a medida para cada necesidad.</p>
+    <p>Cada bot tiene funciones únicas, personalizadas según tus necesidades.</p>
   </section>
 
   <section id="faq">
     <h2>Preguntas Frecuentes</h2>
-    <p>¿Cómo conecto mi WhatsApp? ¿Es seguro? Aquí aclaramos todas tus dudas.</p>
+    <p>¿Cómo conecto mi WhatsApp? ¿Qué puedo hacer con el bot? Aquí resolvemos tus dudas.</p>
   </section>
 
   <section id="contacto">
     <h2>Contáctame</h2>
-    <p>¿Necesitas soporte o un bot personalizado? Escríbeme a <a href="https://wa.me/tu_numero" style="color:#00ffee;">WhatsApp</a>.</p>
+    <p>Escríbeme a <a href="https://wa.me/tu_numero" style="color:#00ffee;">WhatsApp</a> para bots personalizados o ayuda técnica.</p>
   </section>
 
-  <!-- Footer -->
   <footer>
     © 2025 Dv.yer Orosco Bernaola. Todos los derechos reservados.
   </footer>
 
-  <!-- JavaScript -->
   <script>
     function generarCodigo() {
       const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -264,11 +246,17 @@
         codeBox.innerText = nuevoCodigo;
 
         navigator.clipboard.writeText(nuevoCodigo).then(() => {
-          alert(`✅ Código copiado: ${nuevoCodigo}\n\nPega este código en WhatsApp para conectarte al bot.`);
+          alert(`✅ Código copiado: ${nuevoCodigo}\nPega este código en WhatsApp para conectarte al bot.`);
         });
       });
+
+      // Desmutear el video al primer clic del usuario
+      const video = document.getElementById('background-video');
+      document.body.addEventListener('click', () => {
+        video.muted = false;
+        video.play();
+      }, { once: true });
     });
   </script>
-
 </body>
 </html>
