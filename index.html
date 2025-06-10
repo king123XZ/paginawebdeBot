@@ -175,17 +175,11 @@
 
   <!-- Video de fondo -->
   <video id="background-video" autoplay loop muted playsinline>
-    <source src="assets/fondo.mp4" type="video/mp4">
+    <source src="fondo.mp4" type="video/mp4">
     Tu navegador no soporta videos HTML5.
   </video>
 
-  <!-- Música de fondo -->
-  <audio id="background-music" autoplay loop preload="auto">
-    <source src="assets/musica.mp3" type="audio/mpeg">
-    Tu navegador no soporta audio HTML5.
-  </audio>
-
-  <!-- Overlay -->
+  <!-- Overlay oscurecedor -->
   <div class="overlay"></div>
 
   <!-- Menú -->
@@ -233,7 +227,6 @@
     © 2025 Dv.yer Orosco Bernaola. Todos los derechos reservados.
   </footer>
 
-  <!-- Script -->
   <script>
     function generarCodigo() {
       const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -247,8 +240,6 @@
     document.addEventListener("DOMContentLoaded", () => {
       const codeBox = document.getElementById("codeBox");
       const generateBtn = document.getElementById("generateBtn");
-      const video = document.getElementById('background-video');
-      const music = document.getElementById('background-music');
 
       generateBtn.addEventListener("click", () => {
         const nuevoCodigo = generarCodigo();
@@ -259,12 +250,11 @@
         });
       });
 
-      // Activar audio/video al primer clic del usuario
+      // Desmutear el video al primer clic del usuario
+      const video = document.getElementById('background-video');
       document.body.addEventListener('click', () => {
         video.muted = false;
         video.play();
-        music.volume = 0.3;
-        music.play();
       }, { once: true });
     });
   </script>
