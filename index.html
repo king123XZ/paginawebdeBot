@@ -1,14 +1,84 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dv.yer Bot - Web Oficial</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <style>
-    /* ... estilos anteriores ... */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      text-align: center;
+      background: #000;
+    }
+
+    video#background-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 0;
+    }
+
+    header {
+      padding: 60px 20px;
+      z-index: 1;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #00ffee;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #eee;
+      margin-bottom: 30px;
+    }
+
+    .code-box {
+      font-size: 1.8rem;
+      background: #111;
+      display: inline-block;
+      padding: 10px 20px;
+      border: 2px solid #00ffee;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #00ffee;
+      color: black;
+      padding: 10px 20px;
+      margin: 10px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #00ccbb;
+    }
+
     .music-selector {
       margin-top: 15px;
       background: rgba(0,0,0,0.4);
@@ -22,17 +92,16 @@
   </style>
 </head>
 <body>
+  <!-- Video de fondo -->
   <video id="background-video" autoplay loop muted playsinline>
     <source src="fondo.mp4" type="video/mp4">
     Tu navegador no soporta videos HTML5.
   </video>
 
-  <!-- múltiples canciones -->
-  <audio id="background-music" src="musica1.mp3" loop></audio>
-
   <div class="overlay"></div>
 
-  <!-- ... contenido anterior ... -->
+  <!-- Audio -->
+  <audio id="background-music" src="musica1.mp3" loop></audio>
 
   <header>
     <h1>Bienvenido a Dv.yer Bot</h1>
@@ -41,7 +110,7 @@
     <button class="btn" id="generateBtn"><i class="fas fa-magic"></i> Generar Código</button>
     <button class="btn" id="toggleMusic"><i class="fas fa-music"></i> Música</button><br>
     <select id="musicSelector" class="music-selector">
-      <option value="musica.mp3">Canción 1</option>
+      <option value="musica1.mp3">Canción 1</option>
       <option value="musica2.mp3">Canción 2</option>
       <option value="musica3.mp3">Canción 3</option>
       <option value="musica4.mp3">Canción 4</option>
@@ -49,12 +118,7 @@
     </select>
   </header>
 
-  <!-- ... contenido restante ... -->
-
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
-    AOS.init();
-
     function generarCodigo() {
       const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
       let codigo = '';
@@ -105,19 +169,6 @@
         if (musicPlaying) {
           music.play();
         }
-      });
-
-      // Tabs
-      const tabButtons = document.querySelectorAll(".tab-btn");
-      const tabContents = document.querySelectorAll(".tab-content");
-
-      tabButtons.forEach(btn => {
-        btn.addEventListener("click", () => {
-          tabButtons.forEach(b => b.classList.remove("active"));
-          tabContents.forEach(c => c.classList.remove("active"));
-          btn.classList.add("active");
-          document.getElementById(btn.dataset.tab).classList.add("active");
-        });
       });
     });
   </script>
