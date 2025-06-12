@@ -7,6 +7,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       padding: 0;
@@ -34,22 +38,42 @@
       z-index: 0;
     }
 
-    header {
+    header, section, footer {
       padding: 60px 20px;
       z-index: 1;
       position: relative;
     }
 
-    h1 {
-      font-size: 2.5rem;
+    h1, h2 {
       color: #00ffee;
-      margin-bottom: 10px;
     }
 
-    p {
-      font-size: 1.1rem;
+    p, li {
+      font-size: 1rem;
       color: #eee;
-      margin-bottom: 30px;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: #00ffee;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #00ccbb;
     }
 
     .code-box {
@@ -89,10 +113,15 @@
       font-size: 1rem;
       cursor: pointer;
     }
+
+    footer {
+      background: #111;
+      color: #aaa;
+      padding: 20px;
+    }
   </style>
 </head>
 <body>
-  <!-- Video de fondo -->
   <video id="background-video" autoplay loop muted playsinline>
     <source src="fondo.mp4" type="video/mp4">
     Tu navegador no soporta videos HTML5.
@@ -100,10 +129,16 @@
 
   <div class="overlay"></div>
 
-  <!-- Audio -->
   <audio id="background-music" src="musica1.mp3" loop></audio>
 
-  <header>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#info">Información</a>
+    <a href="#features">Características</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <header id="inicio">
     <h1>Bienvenido a Dv.yer Bot</h1>
     <p>Automatiza WhatsApp con inteligencia y estilo. ¡Obtén tu código y comienza ya!</p>
     <div id="codeBox" class="code-box">------</div><br>
@@ -117,6 +152,32 @@
       <option value="musica5.mp3">Canción 5</option>
     </select>
   </header>
+
+  <section id="info">
+    <h2>¿Qué es Dv.yer Bot?</h2>
+    <p>Dv.yer Bot es un sistema automatizado para WhatsApp que te permite realizar múltiples tareas con comandos personalizados, integraciones inteligentes y asistencia automatizada para mejorar tu productividad y entretenimiento.</p>
+  </section>
+
+  <section id="features">
+    <h2>Características</h2>
+    <ul>
+      <li>Generación de códigos únicos para vinculación</li>
+      <li>Bot WhatsApp con múltiples comandos útiles</li>
+      <li>Estilo visual moderno con música personalizable</li>
+      <li>Opciones de conexión por código o QR</li>
+    </ul>
+  </section>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>¿Tienes preguntas, sugerencias o necesitas ayuda? Contáctame a través de:</p>
+    <p>Email: <a href="mailto:dvyerbot@gmail.com" style="color:#00ffee">dvyerbot@gmail.com</a></p>
+    <p>WhatsApp: <a href="https://wa.me/5210000000000" target="_blank" style="color:#00ffee">+52 1 000 000 0000</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Dv.yer Bot. Desarrollado con ❤️ por Veyer.</p>
+  </footer>
 
   <script>
     function generarCodigo() {
