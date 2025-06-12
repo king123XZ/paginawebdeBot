@@ -147,6 +147,42 @@
       font-size: 1rem;
     }
 
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      gap: 10px;
+    }
+
+    .tab-btn {
+      background: none;
+      border: 2px solid #00ffee;
+      color: #00ffee;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      background: #00ffee;
+      color: #000;
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.5s ease-in-out forwards;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     footer {
       text-align: center;
       padding: 2rem 1rem;
@@ -173,7 +209,6 @@
   </style>
 </head>
 <body>
-
   <video id="background-video" autoplay loop muted playsinline>
     <source src="fondo.mp4" type="video/mp4">
     Tu navegador no soporta videos HTML5.
@@ -201,7 +236,20 @@
 
   <section id="info" data-aos="fade-up">
     <h2>Información de los Bots</h2>
-    <p>Diseñados para automatizar respuestas, usar comandos inteligentes y ayudarte en tus tareas diarias.</p>
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="tab1">¿Qué hacen?</button>
+      <button class="tab-btn" data-tab="tab2">¿Cómo se conectan?</button>
+      <button class="tab-btn" data-tab="tab3">¿Son seguros?</button>
+    </div>
+    <div id="tab1" class="tab-content active">
+      <p>Los bots automatizan respuestas, ejecutan comandos, integran inteligencia artificial y mejoran tu productividad diaria.</p>
+    </div>
+    <div id="tab2" class="tab-content">
+      <p>Para conectarte, genera tu código y pégalo en WhatsApp con el bot. Así sabremos que eres tú.</p>
+    </div>
+    <div id="tab3" class="tab-content">
+      <p>Sí, los bots están diseñados con privacidad. Tu número nunca será compartido ni almacenado fuera de tu sesión.</p>
+    </div>
   </section>
 
   <section id="bots" data-aos="fade-up" data-aos-delay="100">
@@ -268,6 +316,19 @@
           toggleMusic.innerHTML = '<i class="fas fa-pause"></i> Pausar';
         }
         musicPlaying = !musicPlaying;
+      });
+
+      // Tabs
+      const tabButtons = document.querySelectorAll(".tab-btn");
+      const tabContents = document.querySelectorAll(".tab-content");
+
+      tabButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          tabButtons.forEach(b => b.classList.remove("active"));
+          tabContents.forEach(c => c.classList.remove("active"));
+          btn.classList.add("active");
+          document.getElementById(btn.dataset.tab).classList.add("active");
+        });
       });
     });
   </script>
