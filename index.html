@@ -6,11 +6,16 @@
   <title>Dv.yer Bot - Web Oficial</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     html, body {
@@ -20,7 +25,6 @@
       overflow-x: hidden;
     }
 
-    /* Fondo de video */
     #background-video {
       position: fixed;
       top: 0; left: 0;
@@ -30,7 +34,6 @@
       z-index: -1;
     }
 
-    /* Overlay para oscurecer ligeramente */
     .overlay {
       position: fixed;
       top: 0; left: 0;
@@ -95,10 +98,10 @@
     }
 
     .btn {
-      margin-top: 30px;
+      margin-top: 20px;
       background: linear-gradient(135deg, #00ffcc, #0077ff);
       border: none;
-      padding: 15px 40px;
+      padding: 12px 30px;
       font-size: 1rem;
       color: white;
       border-radius: 10px;
@@ -159,11 +162,9 @@
         flex-direction: column;
         gap: 1rem;
       }
-
       header h1 {
         font-size: 2rem;
       }
-
       .btn {
         width: 100%;
         max-width: 300px;
@@ -173,16 +174,13 @@
 </head>
 <body>
 
-  <!-- Video de fondo -->
   <video id="background-video" autoplay loop muted playsinline>
     <source src="fondo.mp4" type="video/mp4">
     Tu navegador no soporta videos HTML5.
   </video>
-
-  <!-- Overlay oscurecedor -->
+  <audio id="background-music" src="musica.mp3" loop></audio>
   <div class="overlay"></div>
 
-  <!-- Menú -->
   <nav>
     <div class="logo">Dv.yer Bot</div>
     <ul>
@@ -193,32 +191,30 @@
     </ul>
   </nav>
 
-  <!-- Encabezado -->
   <header>
     <h1>Bienvenido a Dv.yer Bot</h1>
     <p>Automatiza WhatsApp con inteligencia y estilo. ¡Obtén tu código y comienza ya!</p>
-    <div id="codeBox" class="code-box">------</div>
-    <br>
+    <div id="codeBox" class="code-box">------</div><br>
     <button class="btn" id="generateBtn"><i class="fas fa-magic"></i> Generar Código</button>
+    <button class="btn" id="toggleMusic"><i class="fas fa-music"></i> Música</button>
   </header>
 
-  <!-- Secciones -->
-  <section id="info">
+  <section id="info" data-aos="fade-up">
     <h2>Información de los Bots</h2>
     <p>Diseñados para automatizar respuestas, usar comandos inteligentes y ayudarte en tus tareas diarias.</p>
   </section>
 
-  <section id="bots">
+  <section id="bots" data-aos="fade-up" data-aos-delay="100">
     <h2>Lista de Bots</h2>
     <p>Cada bot tiene funciones únicas, personalizadas según tus necesidades.</p>
   </section>
 
-  <section id="faq">
+  <section id="faq" data-aos="fade-up" data-aos-delay="200">
     <h2>Preguntas Frecuentes</h2>
     <p>¿Cómo conecto mi WhatsApp? ¿Qué puedo hacer con el bot? Aquí resolvemos tus dudas.</p>
   </section>
 
-  <section id="contacto">
+  <section id="contacto" data-aos="fade-up" data-aos-delay="300">
     <h2>Contáctame</h2>
     <p>Escríbeme a <a href="https://wa.me/tu_numero" style="color:#00ffee;">WhatsApp</a> para bots personalizados o ayuda técnica.</p>
   </section>
@@ -227,7 +223,10 @@
     © 2025 Dv.yer Orosco Bernaola. Todos los derechos reservados.
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
+    AOS.init();
+
     function generarCodigo() {
       const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
       let codigo = '';
@@ -240,22 +239,36 @@
     document.addEventListener("DOMContentLoaded", () => {
       const codeBox = document.getElementById("codeBox");
       const generateBtn = document.getElementById("generateBtn");
+      const toggleMusic = document.getElementById("toggleMusic");
+      const music = document.getElementById("background-music");
+
+      let codigo = localStorage.getItem("codigoBot");
+      if (!codigo) {
+        codigo = generarCodigo();
+        localStorage.setItem("codigoBot", codigo);
+      }
+      codeBox.innerText = codigo;
 
       generateBtn.addEventListener("click", () => {
-        const nuevoCodigo = generarCodigo();
-        codeBox.innerText = nuevoCodigo;
-
-        navigator.clipboard.writeText(nuevoCodigo).then(() => {
-          alert(`✅ Código copiado: ${nuevoCodigo}\nPega este código en WhatsApp para conectarte al bot.`);
+        codigo = generarCodigo();
+        localStorage.setItem("codigoBot", codigo);
+        codeBox.innerText = codigo;
+        navigator.clipboard.writeText(codigo).then(() => {
+          alert(`✅ Código copiado: ${codigo}\nPega este código en WhatsApp para conectarte al bot.`);
         });
       });
 
-      // Desmutear el video al primer clic del usuario
-      const video = document.getElementById('background-video');
-      document.body.addEventListener('click', () => {
-        video.muted = false;
-        video.play();
-      }, { once: true });
+      let musicPlaying = false;
+      toggleMusic.addEventListener("click", () => {
+        if (musicPlaying) {
+          music.pause();
+          toggleMusic.innerHTML = '<i class="fas fa-music"></i> Música';
+        } else {
+          music.play();
+          toggleMusic.innerHTML = '<i class="fas fa-pause"></i> Pausar';
+        }
+        musicPlaying = !musicPlaying;
+      });
     });
   </script>
 </body>
