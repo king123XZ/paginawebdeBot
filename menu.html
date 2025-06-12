@@ -113,27 +113,6 @@
       font-size: 1rem;
       cursor: pointer;
     }
-
-    .login-container {
-      max-width: 400px;
-      margin: 100px auto;
-      background: #111;
-      padding: 30px;
-      border-radius: 10px;
-      border: 2px solid #00ffee;
-    }
-
-    .login-container input {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 5px;
-      border: none;
-    }
-
-    .hidden {
-      display: none;
-    }
   </style>
 </head>
 <body>
@@ -146,71 +125,53 @@
 
   <audio id="background-music" src="musica1.mp3" loop></audio>
 
-  <div class="login-container" id="loginSection">
-    <h2>Iniciar Sesión</h2>
-    <input type="text" id="username" placeholder="Usuario">
-    <input type="password" id="password" placeholder="Contraseña">
-    <button class="btn" onclick="login()">Entrar</button>
-    <p>¿No tienes cuenta? <a href="#" onclick="showRegister()" style="color:#00ffee">Regístrate</a></p>
-  </div>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#info">Información</a>
+    <a href="#features">Características</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
 
-  <div class="login-container hidden" id="registerSection">
-    <h2>Registrarse</h2>
-    <input type="text" id="newUsername" placeholder="Usuario nuevo">
-    <input type="password" id="newPassword" placeholder="Contraseña nueva">
-    <button class="btn" onclick="register()">Crear cuenta</button>
-    <p>¿Ya tienes cuenta? <a href="#" onclick="showLogin()" style="color:#00ffee">Iniciar sesión</a></p>
-  </div>
+  <header id="inicio">
+    <h1>Bienvenido a Dv.yer Bot</h1>
+    <p>Automatiza WhatsApp con inteligencia y estilo. ¡Obtén tu código y comienza ya!</p>
+    <div id="codeBox" class="code-box">------</div><br>
+    <button class="btn" id="generateBtn"><i class="fas fa-magic"></i> Generar Código</button>
+    <button class="btn" id="toggleMusic"><i class="fas fa-music"></i> Música</button><br>
+    <select id="musicSelector" class="music-selector">
+      <option value="musica1.mp3">Canción 1</option>
+      <option value="musica2.mp3">Canción 2</option>
+      <option value="musica3.mp3">Canción 3</option>
+      <option value="musica4.mp3">Canción 4</option>
+      <option value="musica5.mp3">Canción 5</option>
+    </select>
+  </header>
 
-  <div id="mainContent" class="hidden">
-    <nav>
-      <a href="#inicio">Inicio</a>
-      <a href="#info">Información</a>
-      <a href="#features">Características</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
+  <section id="info">
+    <h2>¿Qué es Dv.yer Bot?</h2>
+    <p>Dv.yer Bot es un sistema automatizado para WhatsApp que te permite realizar múltiples tareas con comandos personalizados, integraciones inteligentes y asistencia automatizada para mejorar tu productividad y entretenimiento.</p>
+  </section>
 
-    <header id="inicio">
-      <h1>Bienvenido a Dv.yer Bot</h1>
-      <p>Automatiza WhatsApp con inteligencia y estilo. ¡Obtén tu código y comienza ya!</p>
-      <div id="codeBox" class="code-box">------</div><br>
-      <button class="btn" id="generateBtn"><i class="fas fa-magic"></i> Generar Código</button>
-      <button class="btn" id="toggleMusic"><i class="fas fa-music"></i> Música</button><br>
-      <select id="musicSelector" class="music-selector">
-        <option value="musica1.mp3">Canción 1</option>
-        <option value="musica2.mp3">Canción 2</option>
-        <option value="musica3.mp3">Canción 3</option>
-        <option value="musica4.mp3">Canción 4</option>
-        <option value="musica5.mp3">Canción 5</option>
-      </select>
-    </header>
+  <section id="features">
+    <h2>Características</h2>
+    <ul>
+      <li>Generación de códigos únicos para vinculación</li>
+      <li>Bot WhatsApp con múltiples comandos útiles</li>
+      <li>Estilo visual moderno con música personalizable</li>
+      <li>Opciones de conexión por código o QR</li>
+    </ul>
+  </section>
 
-    <section id="info">
-      <h2>¿Qué es Dv.yer Bot?</h2>
-      <p>Dv.yer Bot es un sistema automatizado para WhatsApp que te permite realizar múltiples tareas con comandos personalizados, integraciones inteligentes y asistencia automatizada para mejorar tu productividad y entretenimiento.</p>
-    </section>
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>¿Tienes preguntas, sugerencias o necesitas ayuda? Contáctame a través de:</p>
+    <p>Email: <a href="oroscoyerson2019@gmail.com" style="color:#00ffee">oroscoyerson2019@gmail.com</a></p>
+    <p>WhatsApp: <a href="https://wa.me/51907376960" target="_blank" style="color:#00ffee">+51907376960</a></p>
+  </section>
 
-    <section id="features">
-      <h2>Características</h2>
-      <ul>
-        <li>Generación de códigos únicos para vinculación</li>
-        <li>Bot WhatsApp con múltiples comandos útiles</li>
-        <li>Estilo visual moderno con música personalizable</li>
-        <li>Opciones de conexión por código o QR</li>
-      </ul>
-    </section>
-
-    <section id="contacto">
-      <h2>Contacto</h2>
-      <p>¿Tienes preguntas, sugerencias o necesitas ayuda? Contáctame a través de:</p>
-      <p>Email: <a href="mailto:dvyerbot@gmail.com" style="color:#00ffee">dvyerbot@gmail.com</a></p>
-      <p>WhatsApp: <a href="https://wa.me/5210000000000" target="_blank" style="color:#00ffee">+52 1 000 000 0000</a></p>
-    </section>
-
-    <footer>
-      <p>&copy; 2025 Dv.yer Bot. Desarrollado con ❤️ por Veyer.</p>
-    </footer>
-  </div>
+  <footer>
+    <p>&copy; 2025 Dv.yer Bot. Desarrollado falta para terminar asi que denme timepo mieldas .</p>
+  </footer>
 
   <script>
     function generarCodigo() {
@@ -220,42 +181,6 @@
         codigo += chars.charAt(Math.floor(Math.random() * chars.length));
       }
       return codigo;
-    }
-
-    function login() {
-      const user = document.getElementById('username').value;
-      const pass = document.getElementById('password').value;
-      const savedUser = localStorage.getItem('usuario');
-      const savedPass = localStorage.getItem('contraseña');
-      if (user === savedUser && pass === savedPass) {
-        document.getElementById('loginSection').classList.add('hidden');
-        document.getElementById('mainContent').classList.remove('hidden');
-      } else {
-        alert('⚠️ Usuario o contraseña incorrectos.');
-      }
-    }
-
-    function register() {
-      const user = document.getElementById('newUsername').value;
-      const pass = document.getElementById('newPassword').value;
-      if (user && pass) {
-        localStorage.setItem('usuario', user);
-        localStorage.setItem('contraseña', pass);
-        alert('✅ Registro exitoso. Ahora inicia sesión.');
-        showLogin();
-      } else {
-        alert('⚠️ Por favor, llena todos los campos.');
-      }
-    }
-
-    function showRegister() {
-      document.getElementById('loginSection').classList.add('hidden');
-      document.getElementById('registerSection').classList.remove('hidden');
-    }
-
-    function showLogin() {
-      document.getElementById('registerSection').classList.add('hidden');
-      document.getElementById('loginSection').classList.remove('hidden');
     }
 
     document.addEventListener("DOMContentLoaded", () => {
